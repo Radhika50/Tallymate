@@ -1,0 +1,28 @@
+/* src/styles/Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #34495e;
+  color: white;
+  padding: 10px 20px;
+}
+
+.navbar-left {
+  font-size: 24px;
+}
+
+.navbar-left a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-right .navbar-profile {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right .navbar-profile img {
+  width: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
