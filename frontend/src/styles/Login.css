@@ -3,14 +3,14 @@
   display: flex;
   height: 100vh;
   width: 100%;
-  background-color: #f5f7fa;
+  background-color: #eef2f7;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Left side */
 .left-section {
   flex: 1;
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   display: flex;
   flex-direction: column;
@@ -26,14 +26,31 @@
 }
 
 .animated-text {
+  font-family: 'Courier New', Courier, monospace;
   font-size: 1.5rem;
-  animation: pulse 2s infinite;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 3s steps(20, end) forwards, blink 0.8s step-end infinite;
 }
 
-@keyframes pulse {
-  0% { opacity: 0.7; }
-  50% { opacity: 1; }
-  100% { opacity: 0.7; }
+@keyframes typing {
+  from {
+    width: 0ch;
+  }
+  to {
+    width: 28ch;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0.75);
+  }
 }
 
 /* Right side */
@@ -56,7 +73,7 @@
 }
 
 .register-link {
-  color: #4facfe;
+  color: #667eea;
   cursor: pointer;
   font-weight: bold;
 }
@@ -70,28 +87,63 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 80%;
+  width: 100%;
+  max-width: 400px;
   margin: 0 auto;
 }
 
-.login-form input {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
+/* Force all form elements to have identical dimensions */
+.login-form input[type="email"],
+.login-form input[type="password"],
+.login-form button {
+  display: block !important;
+  width: 100% !important;
+  height: 45px !important;
+  padding: 0 15px !important;
+  margin: 0 !important;
+  border-radius: 10px !important;
+  font-size: 1rem !important;
+  box-sizing: border-box !important;
+  min-width: unset !important;
+  max-width: 100% !important;
+  line-height: normal !important;
 }
 
+/* Input styling */
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  border: 1px solid #ccd1e4 !important;
+  background-color: #f9fbff !important;
+  font-family: inherit !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  transition: border 0.3s !important;
+}
+
+.login-form input:focus {
+  border-color: #764ba2 !important;
+  outline: none !important;
+}
+
+/* Button styling */
 .login-form button {
-  padding: 0.75rem;
-  background-color: #4facfe;
-  border: none;
-  color: white;
-  font-size: 1.2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
+  background-color: #667eea !important;
+  border: none !important;
+  color: white !important;
+  font-size: 1.2rem !important;
+  cursor: pointer !important;
+  transition: background 0.3s !important;
 }
 
 .login-form button:hover {
-  background-color: #00c6fb;
+  background-color: #5a67d8 !important;
+}
+
+/* Ensure consistency across browsers */
+.login-form input:-webkit-autofill,
+.login-form input:-webkit-autofill:hover,
+.login-form input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #f9fbff inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
 }
